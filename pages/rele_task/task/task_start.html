@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>开始任务</title>
+    <link rel="stylesheet" href="../../../css/style_j.css" />
+    <script type="text/javascript" src="../../../lib/js/rem.min.js"></script>
+    <style type="text/css">
+        .mui-checkbox.mui-left input[type=checkbox], .mui-radio.mui-left input[type=radio]{
+            left: 40px;
+        }
+        .mui-table-view li.mui-active{
+            background-color:transparent!important;
+        }
+        .mui-table-view-cell{
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            padding: 5px 15px!important;
+        }
+        .mui-table-view-cell input{
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+            width: 100%!important;
+            border:0;
+        }
+        .mui-table-view-cell > div:first-child{
+            width: 80px!important;
+        }
+
+        ul,li{
+            list-style-type: none;
+        }
+        .my-title{
+            background-color: #D8D8D8;
+        }
+        textarea{
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="bg_white">
+<header id="header_det" class="mui-bar mui-bar-nav main-bg">
+    <h1 class="mui-title col_white">发布任务</h1>
+    <a class="mui-icon mui-icon-undo mui-pull-left col_white" href="javascript:window.history.back();"></a>
+</header>
+<section class="bg_white mui-content">
+    <div class="mui-table-view-cell my-title gray">
+        <div class="fl">类型</div>
+    </div>
+    <ul class="mui-table-view" style="margin-top: 0;">
+        <li class="mui-table-view-cell">
+            <div>任务名称</div>
+            <div class="col_333">
+                <input type="text" class="name" placeholder="输入任务名称"/>
+            </div>
+        </li>
+        <li class="mui-table-view-cell">
+            <div>任务名称</div>
+            <div class="col_333">
+                <input type="text" class="name" placeholder="输入任务名称"/>
+            </div>
+        </li>
+        <li class="mui-table-view-cell" style="display: block">
+            <div class="pb10">内容简介</div>
+            <div>
+                <textarea class="font14" id="textarea" rows="3" placeholder="输入补充"></textarea>
+            </div>
+        </li>
+    </ul>
+    <div class="mui-table-view ">
+        <div class="mui-table-view-cell col_333 mui-input-row mui-checkbox mui-left dp_flex flex_vc" style="width: 100%!important;">
+            <label class="font14" style="width: 60%!important;">
+                <input name="checkbox" style="width: 0!important;" value="Item 1" type="checkbox" />
+                <span>我已阅读并同意</span>
+            </label>
+            <a href="javascript:;" class="col_link">《负责声明》</a>
+        </div>
+    </div>
+    <div class="bg_white save_box">
+        <button type="button" class="col_white btn_style btn-next">下一步</button>
+    </div>
+</section>
+<script type="text/javascript" src="../../../lib/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="../../../lib/layer/layer.js"></script>
+
+<script type="text/javascript">
+    var btn_next = $(".btn-next");
+    btn_next.click(function(){
+        location.href="task_next.html";
+    });
+</script>
+</body>
+</html>

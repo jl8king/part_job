@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>银行卡信息</title>
+    <link rel="stylesheet" href="../../css/style_j.css" />
+    <style type="text/css">
+        .mui-table-view li.mui-active{
+            background-color:transparent!important;
+        }
+        .mui-table-view-cell{
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            padding: 5px 15px!important;
+        }
+        .mui-table-view-cell input{
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+            width: 100%!important;
+            border:0;
+        }
+        .mui-table-view-cell > div:first-child{
+            width: 100px;
+        }
+    </style>
+    <script type="text/javascript" src="../../lib/js/rem.min.js"></script>
+    <script type="text/javascript" src="../../common/js/myUtils.js"></script>
+</head>
+<body class="bg_white">
+<header id="header_det" class="mui-bar mui-bar-nav main-bg">
+    <h1 class="mui-title col_white">银行卡信息</h1>
+    <a class="mui-icon mui-icon-undo mui-pull-left col_white" href="javascript:window.history.back();"></a>
+</header>
+<section class="mui-content bg_white">
+    <div class="mui-table-view-cell my-title gray">
+        <h5 class="fl">请绑定实名认证者本人的银行卡</h5>
+    </div>
+    <ul class="mui-table-view" style="margin-top: 0;">
+        <li class="mui-table-view-cell">
+            <div >持卡人</div>
+            <div class="col_333 width100">
+                <input type="password" class="card_person" placeholder="输入持卡人"/>
+            </div>
+        </li>
+        <li class="mui-table-view-cell ">
+            <div>银行/支行</div>
+            <div class="col_333 width100">
+                <input type="text" class="card_name" placeholder="输入银行名称"/>
+            </div>
+        </li>
+        <li class="mui-table-view-cell ">
+            <div>卡号</div>
+            <div class="col_333 width100">
+                <input type="text" class="card_num" placeholder="输入银行卡号"/>
+            </div>
+        </li>
+    </ul>
+    <div class="save_box">
+        <button type="button" class="col_white main-bg btn_save">保存</button>
+    </div>
+</section>
+<script type="text/javascript" src="../../lib/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="../../lib/mui/js/mui.js"></script>
+<script type="text/javascript" src="../../lib/layer/layer.js"></script>
+<script>
+$(document).ready(function(){
+    var card_person = $(".card_person");//持卡人
+    var card_name = $(".card_name");//银行名称
+    var card_num = $(".card_num");//银行卡号
+
+    $(".btn_save").click(function(){
+        if(card_person.val() == ""){
+            layer.msg("请输入持卡人",{
+                icon:0
+            });
+            card_person.focus();
+        }else if(card_name.val() == ""){
+            layer.msg("请输入银行名称",{
+                icon:0
+            });
+            card_name.focus();
+        }else if(card_num.val() == ""){
+            layer.msg("请输入银行卡号",{
+                icon:0
+            });
+            card_num.focus();
+        }else{
+            layer.msg("成功修改银行卡信息",{
+                icon:1
+            });
+        }
+    });
+});
+</script>
+</body>
+</html>

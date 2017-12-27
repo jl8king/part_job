@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!-- 发表内容 -->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>发表内容</title>
+    <link rel="stylesheet" href="../../css/style_j.css" />
+    <script type="text/javascript" src="../../common/js/myUtils.js"></script>
+    <script type="text/javascript" src="../../lib/js/rem.min.js"></script>
+    <style type="text/css">
+        .mui-checkbox.mui-left input[type=checkbox], .mui-radio.mui-left input[type=radio]{
+            left: 40px;
+        }
+        .mui-table-view li.mui-active{
+            background-color:transparent!important;
+        }
+        .mui-table-view-cell{
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            padding: 5px 15px!important;
+        }
+        .mui-table-view-cell input:not(input[type="file"]){
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+            width: 100%!important;
+            border:0;
+        }
+        .mui-table-view-cell > div:first-child{
+            width: 80px!important;
+        }
+
+        ul,li{
+            list-style-type: none;
+        }
+        .my-title{
+            background-color: #D8D8D8;
+        }
+        textarea{
+            margin: 0;
+        }
+        .mui-pull-right:active{
+            opacity: .7;
+        }
+    </style>
+</head>
+<body class="bg_white">
+<header id="header_det" class="mui-bar mui-bar-nav main-bg">
+    <h1 class="mui-title col_white">提交任务</h1>
+    <a class="mui-icon mui-icon-undo mui-pull-left col_white" href="javascript:window.history.back();"></a>
+    <button class="mui-btn-link mui-pull-right col_white btn_send">发表</button>
+</header>
+<section class="bg_white mui-content">
+    <ul class="mui-table-view" style="margin-top: 0;">
+        <li class="mui-table-view-cell" style="display: block">
+            <div></div>
+            <div>
+                <textarea class="font14" id="textarea" rows="4" placeholder="输入提交任务内容"></textarea>
+            </div>
+        </li>
+        <li class="mui-table-view-cell" style="display: block;position: relative">
+            <div class="add_img mui-ellipsis">
+                点击添加图片
+            </div>
+            <input type="file" name="file" class="add_img up_img_file"/>
+        </li>
+        <li class="add_img_list mui-table-view mui-grid-view mui-grid-9 bg_white" >
+            <div class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <img src="../../images/deposit.png" alt="未加载" />
+            </div>
+        </li>
+    </ul>
+</section>
+<script type="text/javascript" src="../../lib/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="../../lib/layer/layer.js"></script>
+<script type="text/javascript" >
+    function getFileUrl(file) {
+        var url = null;
+        if (window.createObjectURL != undefined) {
+            url = window.createObjectURL(file);
+        } else if (window.URL != undefined) {
+            url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL != undefined) {
+            url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    }
+    function myMsg(str = "请填写信息"){
+        layer.msg(str,{
+            icon:0,
+            item:2000
+        });
+    }
+
+    $(document).ready(function(){
+        var img_formats = "jpeg,jpg,bmp,png,gif,ico,tiff,pcx,tga,exif,fpx,svg,psd,cdr,pcd,dxf,ufo,eps,ai,raw,wmf";
+        var file = $('input[name="file"]');
+        var textarea = $("#textarea");//发送的内容
+        var img_list = $(".add_img_list");//上传的图片显示列表
+        var btn_send = $(".btn_send");//发送消息
+        btn_send.click(function(){
+            var text_msg = myUtils.trim(textarea.val());
+            if(text_msg){
+                layer.msg("内容为：" + text_msg);
+            }else{
+                layer.msg("请输入发表的内容");
+            }
+        });
+        file.change(function(e){
+            var files=this.files;
+            var formData=new FormData();
+            formData.append('files',files[0]);
+            var img_format = myUtils.file_format(files[0].name);
+            console.log(files[0].name);
+            if(img_format.length > 0){
+                if(img_formats.indexOf(img_format) >= 0){
+                    var img = getFileUrl(files[0]);
+                    var img_html = img_list.html();
+                    img_html+='<div class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><img src="'+ img +'" alt="未加载" /></div>';
+                    img_list.html(img_html);
+                    layer.msg("图片上传成功",{
+                        icon:1
+                    });
+                }else{
+                    layer.msg("请上传图片文件",{
+                        icon:2,
+                        anim:6
+                    });
+                }
+            }else{
+                layer.msg("上传的不是一个有效的文件",{
+                    icon:2,
+                    anim:6
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

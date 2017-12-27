@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!-- 排行榜 -->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>排行榜</title>
+    <link rel="stylesheet" href="../../css/style_j.css" />
+    <style>
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+            color: #71A9FC!important;
+            border-bottom: 2px solid #71A9FC;
+        }
+        .audit_list li > div{
+            box-sizing: border-box;
+        }
+        .audit_list li > div:nth-child(2){
+            width: 30%;
+        }
+
+        .audit_list li > div:nth-child(3){
+            width: 25%;
+        }
+        .audit_list li{
+            margin: 10px;
+            padding: .5rem 1rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            justify-content: space-between;
+            border-radius: 5px;
+            box-shadow:0 0 5px #147bec;
+            font-size: .54rem;
+        }
+        .audit_list img{
+            width: 3rem;
+            border-radius: 100%;
+            margin-right: .3rem;
+        }
+        .portrait{
+            display: inline-flex;
+            align-items: center;
+            width: 45%;
+            padding-right: .5rem;
+            box-sizing: border-box;
+        }
+        .portrait span{
+            font-size: .8rem;
+        }
+        .portrait img{
+            width: 3rem;
+        }
+        .audit_list li:nth-child(n):after{
+            content: " ";
+            font-size: 0;
+            width: 3rem;
+            height: 3rem;
+            display: block;
+            clear: both;
+            background-size: 3rem;
+            background-repeat: no-repeat;
+        }
+        .audit_list li:nth-child(1):after{
+            background-image: url("../../images/level_one.png");
+        }
+        .audit_list li:nth-child(2):after{
+            background-image: url("../../images/level_tow.png");
+        }
+        .audit_list li:nth-child(3):after{
+            background-image: url("../../images/level_three.png");
+        }
+    </style>
+</head>
+<body class="bg_white">
+<header id="header_det" class="mui-bar mui-bar-nav main-bg">
+    <h1 class="mui-title col_white">排行榜</h1>
+    <a class="mui-icon mui-icon-undo mui-pull-left col_white" href="javascript:window.history.back();"></a>
+</header>
+<section class="mui-content bg_white">
+    <div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-primary nav_bb_line">
+        <a class="mui-control-item mui-active " href="#item1">收入排行榜</a>
+        <a class="mui-control-item" href="#item2">会员排行榜</a>
+    </div>
+    <div id="item1" class="mui-control-content mui-active">
+        <ul class="audit_list">
+            <li>
+                <div class="portrait">
+                    <img src="../../images/xlbtx.png" alt="未加载" />
+                    <span class="mui-ellipsis-2">是芬是反都是发啥地方撒旦发的说法复</span>
+                </div>
+                <div class="font16 col_money mui-ellipsis-2">50062255555560元</div>
+            </li>
+            <li>
+                <div class="portrait">
+                    <img src="../../images/xlbtx.png" alt="未加载" />
+                    <span class="mui-ellipsis-2">的所发生的</span>
+                </div>
+                <div class="font16 col_money mui-ellipsis-2">4560元</div>
+            </li>
+            <li>
+                <div class="portrait">
+                    <img src="../../images/xlbtx.png" alt="未加载" />
+                    <span class="mui-ellipsis-2">是芬是反都是发啥地方撒旦发的说法复</span>
+                </div>
+                <div class="font16 col_money mui-ellipsis-2">50062255555560元</div>
+            </li>
+
+            <li>
+                <div class="portrait">
+                    <img src="../../images/xlbtx.png" alt="未加载" />
+                    <span class="mui-ellipsis-2">是芬是反都是发啥地方撒旦发的说法复</span>
+                </div>
+                <div class="font16 col_money mui-ellipsis-2">50062255555560元</div>
+            </li>
+        </ul>
+    </div>
+    <div id="item2" class="mui-control-content">
+        <ul class="audit_list">
+            <li>
+                <div class="portrait">
+                    <img src="../../images/xlbtx.png" alt="未加载" />
+                    <span class="mui-ellipsis-2">是芬是反都是发啥地方撒旦发的说法复</span>
+                </div>
+                <div class="font16 main-col mui-ellipsis-2">35人</div>
+            </li>
+            <li>
+                <div class="portrait">
+                    <img src="../../images/xlbtx.png" alt="未加载" />
+                    <span class="mui-ellipsis-2">的所发生的</span>
+                </div>
+                <div class="font16 main-col mui-ellipsis-2">354人</div>
+            </li>
+            <li>
+                <div class="portrait">
+                    <img src="../../images/xlbtx.png" alt="未加载" />
+                    <span class="mui-ellipsis-2">是芬是反都是发啥地方撒旦发的说法复</span>
+                </div>
+                <div class="font16 main-col mui-ellipsis-2">14人</div>
+            </li>
+
+            <li>
+                <div class="portrait">
+                    <img src="../../images/xlbtx.png" alt="未加载" />
+                    <span class="mui-ellipsis-2">是芬是反都是发啥地方撒旦发的说法复</span>
+                </div>
+                <div class="font16 main-col mui-ellipsis-2">3人</div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+<script type="text/javascript" src="../../lib/mui/js/mui.js"></script>
+<script type="text/javascript" src="../../lib/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="../../lib/swiper/js/swiper.min.js"></script>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

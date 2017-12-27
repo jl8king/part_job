@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- 交流分享 -->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>交流分享</title>
+    <link rel="stylesheet" href="../../css/style_j.css" />
+    <script type="text/javascript" src="../../common/js/myUtils.js"></script>
+    <script type="text/javascript" src="../../lib/js/rem.min.js"></script>
+    <style>
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+            color: #71A9FC!important;
+            border-bottom: 2px solid #71A9FC;
+        }
+        .mui-icon-plusempty:before{
+            border:1px solid white;
+            border-radius: 100%;
+        }
+    </style>
+</head>
+<body class="bg_white">
+<header id="header_det" class="mui-bar mui-bar-nav main-bg">
+    <h1 class="mui-title col_white">交流分享</h1>
+    <a class="mui-icon mui-icon-undo mui-pull-left col_white" href="javascript:window.history.back();"></a>
+    <a href="./msg_send.html" class="mui-icon mui-icon-plusempty mui-pull-right col_white"></a>
+</header>
+<section class="mui-content bg_white">
+    <div id="segmentedControl" style="background-color:#FFF;" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-primary">
+        <a class="mui-control-item mui-active " href="#item1">我发布的</a>
+        <a class="mui-control-item" href="#item2">与我相关</a>
+    </div>
+
+    <div id="item1" class="mui-control-content"></div>
+    <div id="item2" class="mui-control-content mui-active"></div>
+</section>
+<script type="text/javascript" src="../../lib/mui/js/mui.min.js"></script>
+<script type="text/javascript" src="../../lib/js/jquery-1.11.1.js"></script>
+</body>
+</html>

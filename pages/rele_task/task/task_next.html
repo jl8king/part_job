@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>任务详情</title>
+    <link rel="stylesheet" href="../../../css/style_j.css" />
+    <script type="text/javascript" src="../../../common/js/myUtils.js"></script>
+    <script type="text/javascript" src="../../../lib/js/rem.min.js"></script>
+    <style type="text/css">
+        .mui-checkbox.mui-left input[type=checkbox], .mui-radio.mui-left input[type=radio]{
+            left: 40px;
+        }
+        .mui-table-view li.mui-active{
+            background-color:transparent!important;
+        }
+        .mui-table-view-cell{
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            padding: 5px 15px!important;
+        }
+        .mui-table-view-cell input:not(input[type="file"]){
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+            width: 100%!important;
+            border:0;
+        }
+        .mui-table-view-cell > div:first-child{
+            width: 80px!important;
+        }
+
+        ul,li{
+            list-style-type: none;
+        }
+        .my-title{
+            background-color: #D8D8D8;
+        }
+        textarea{
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="bg_white">
+<header id="header_det" class="mui-bar mui-bar-nav main-bg">
+    <h1 class="mui-title col_white">任务详情</h1>
+    <a class="mui-icon mui-icon-undo mui-pull-left col_white" href="javascript:window.history.back();"></a>
+</header>
+<section class="bg_white mui-content">
+    <div class="mui-table-view-cell my-title gray">
+        <div class="fl">任务详情</div>
+    </div>
+    <ul class="mui-table-view" style="margin-top: 0;">
+        <li class="mui-table-view-cell" style="display: block">
+            <div></div>
+            <div>
+                <textarea class="font14" id="textarea" rows="4" placeholder="任务详情"></textarea>
+            </div>
+        </li>
+        <li class="mui-table-view-cell" style="display: block;position: relative">
+            <div class="add_img mui-ellipsis">
+                点击添加图片
+            </div>
+            <input type="file" name="file" class="add_img up_img_file"/>
+        </li>
+        <li class="add_img_list mui-table-view mui-grid-view mui-grid-9 bg_white" >
+            <div class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <img src="../../../images/deposit.png" alt="未加载" />
+            </div>
+        </li>
+    </ul>
+    <div class="mui-table-view ">
+        <div class="mui-table-view-cell col_333 mui-input-row mui-checkbox mui-left dp_flex flex_vc" style="width: 100%!important;">
+            <label class="font14" style="width: 60%!important;">
+                <input name="checkbox" style="width: 0!important;" value="Item 1" type="checkbox" />
+                <span>我已阅读并同意</span>
+            </label>
+            <a href="javascript:;" class="col_link">《负责声明》</a>
+        </div>
+    </div>
+    <div class="bg_white save_box">
+        <button type="button" class="col_white btn_style btn-next">下一步</button>
+    </div>
+</section>
+<script type="text/javascript" src="../../../lib/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="../../../lib/layer/layer.js"></script>
+<script type="text/javascript" >
+    function getFileUrl(file) {
+        var url = null;
+        if (window.createObjectURL != undefined) {
+            url = window.createObjectURL(file);
+        } else if (window.URL != undefined) {
+            url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL != undefined) {
+            url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    }
+    function myMsg(str = "请填写信息"){
+        layer.msg(str,{
+            icon:0,
+            item:2000
+        });
+    }
+
+    $(document).ready(function(){
+        var img_formats = "jpeg,jpg,bmp,png,gif,ico,tiff,pcx,tga,exif,fpx,svg,psd,cdr,pcd,dxf,ufo,eps,ai,raw,wmf";
+        var file = $('input[name="file"]');
+        var btn_save = $(".btn_save");
+        var name = $(".name");//真实姓名
+        var img_list = $(".add_img_list");//上传的图片显示列表
+		var btn_next = $(".btn-next");//下一步
+        file.change(function(e){
+            var files=this.files;
+            var formData=new FormData();
+            formData.append('files',files[0]);
+            var img_format = myUtils.file_format(files[0].name);
+            console.log(files[0].name);
+            if(img_format.length > 0){
+                if(img_formats.indexOf(img_format) >= 0){
+                    var img = getFileUrl(files[0]);
+                    var img_html = img_list.html();
+                    img_html+='<div class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><img src="'+ img +'" alt="未加载" /></div>';
+                    img_list.html(img_html);
+                    layer.msg("图片上传成功",{
+                        icon:1
+                    });
+                }else{
+                    layer.msg("请上传图片文件",{
+                        icon:2,
+                        anim:6
+                    });
+                }
+            }else{
+                layer.msg("上传的不是一个有效的文件",{
+                    icon:2,
+                    anim:6
+                });
+            }
+        });
+		btn_next.click(function(e){
+			location.href = "task_send.html";
+		});
+	});
+</script>
+</body>
+</html>

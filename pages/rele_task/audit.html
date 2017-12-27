@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- 审核任务 -->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>审核任务</title>
+    <link rel="stylesheet" href="../../css/style_j.css" />
+    <style type="text/css">
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+            color: #71A9FC!important;
+            border-bottom: 2px solid #71A9FC;
+        }
+        #segmentedControl{
+            border-bottom: 1px solid #E5E5E5;
+        }
+        .mui-table-view-cell span{
+            font-size: 14px;
+        }
+    </style>
+    <script type="text/javascript" src="../../lib/js/rem.min.js"></script>
+</head>
+<body class="bg_white">
+<section class="mui-content bg_white">
+    <div id="segmentedControl" style="background-color:#FFF;" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-primary">
+        <a class="mui-control-item mui-active " href="#item1">待审核</a>
+        <a class="mui-control-item" href="#item2">已结束</a>
+    </div>
+    <div id="item1" class="mui-control-content mui-active">
+        <ul class="suepr_task_list">
+            <li class="suepr_task_content">
+                <div class="task_tit">
+                    <span class="mui-ellipsis">任务ID：65454514455</span>
+                    <span class="font12 mui-ellipsis">截止日期：2017/12/22</span>
+                </div>
+                <div class="task_type">
+                    <span>淘宝店刷单</span>
+                    <span>刷单10分</span>
+                </div>
+                <div class="task_content">
+                    <span>帮助淘宝店进行刷单</span>
+                    <div class="audit_last">
+                        <span>已提交：39/100</span>
+                        <a href="./audit/audit_auto.html" class="btn_au">去审核</a>
+                    </div>
+                </div>
+                <div class="label_right">
+                    <span>老板发布</span>
+                    <img src="../../images/bgtask_yell.png" alt="未加载" />
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="item2" class="mui-control-content">
+        <ul class="suepr_task_list">
+            <li class="suepr_task_content">
+                <div class="task_tit">
+                    <span class="mui-ellipsis">任务ID：65454514455</span>
+                    <span class="font12 mui-ellipsis">截止日期：2017/12/22</span>
+                </div>
+                <div class="task_type">
+                    <span>淘宝店刷单</span>
+                    <span>刷单10分</span>
+                </div>
+                <div class="task_content">
+                    <span>帮助淘宝店进行刷单</span>
+                    <div class="audit_last">
+                        <span>已提交：39/100</span>
+                    </div>
+                </div>
+                <div class="label_right">
+                    <span>老板发布</span>
+                    <img src="../../images/bgtask_yell.png" alt="未加载" />
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+<nav class="mui-bar mui-bar-tab my-nav">
+    <a class="mui-tab-item" href="../../rele_task.html">
+        <span class="mui-icon mui-icon-home"></span>
+        <span class="mui-tab-label">发布任务</span>
+    </a>
+    <a class="mui-tab-item" href="./release.html">
+        <span class="mui-icon mui-icon-settings"></span>
+        <span class="mui-tab-label">发布中</span>
+    </a>
+    <a class="mui-tab-item mui-active" href="./audit.html">
+        <span class="mui-icon mui-icon-reload"></span>
+        <span class="mui-tab-label">审核任务</span>
+    </a>
+    <a class="mui-tab-item" href="./recruit_center.html">
+        <span class="mui-icon mui-icon-gear"></span>
+        <span class="mui-tab-label">招募中心</span>
+    </a>
+</nav>
+<script type="text/javascript" src="../../lib/mui/js/mui.min.js"></script>
+<script type="text/javascript" src="../../lib/js/jquery-1.11.1.js"></script>
+<script>
+    $(".my-nav > a").click(function(){
+        window.location.href = this.href;
+    });
+</script>
+</body>
+</html>

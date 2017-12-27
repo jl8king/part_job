@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>确认发布</title>
+    <link rel="stylesheet" href="../../../css/style_j.css" />
+    <script type="text/javascript" src="../../../common/js/myUtils.js"></script>
+    <script type="text/javascript" src="../../../lib/js/rem.min.js"></script>
+    <style type="text/css">
+        .mui-checkbox.mui-left input[type=checkbox], .mui-radio.mui-left input[type=radio]{
+            left: 40px;
+        }
+        ul,li{
+            list-style-type: none;
+        }
+        .my-title{
+            background-color: #D8D8D8;
+        }
+        .mui-table-view-cell{
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            padding: 5px 15px!important;
+        }
+        .lui-row{
+            display: flex;
+            flex-wrap: wrap;
+            -webkit-flex-wrap: wrap;
+            -moz-flex-wrap: wrap;
+            padding: 10px;
+        }
+        .lui-row > div{
+            min-width: 50%;
+            padding-bottom: 5px;
+            font-size: 14px;
+        }
+        .info{
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body class="bg_white">
+    <header id="header_det" class="mui-bar mui-bar-nav main-bg">
+        <h1 class="mui-title col_white">任务须知</h1>
+        <a class="mui-icon mui-icon-undo mui-pull-left col_white" href="javascript:window.history.back();"></a>
+    </header>
+    <section class="bg_white mui-content">
+        <div class="mui-table-view-cell my-title gray">
+            <div class="fl">本次任务需要</div>
+        </div>
+        <div class="lui-row">
+            <div>单笔悬赏：500积分</div>
+            <div>数量：100</div>
+            <div>总计：50000积分</div>
+            <div class="font12 info" style="width: 100%">
+                <i class="fa fa-exclamation-triangle" style="color: #E41D23;" aria-hidden="true"></i>
+                该积分将被冻结，任务结束后剩余积分将退回您的积分钱包
+            </div>
+        </div>
+        <div class="mui-table-view">
+            <div class="mui-table-view-cell col_333 mui-input-row mui-checkbox mui-left dp_flex flex_vc" style="width: 100%!important;">
+                <label class="font14" style="width: 60%!important;">
+                    <input name="checkbox" style="width: 0!important;" value="Item 1" type="checkbox" />
+                    <span>我已阅读并同意</span>
+                </label>
+                <a href="javascript:;" class="col_link">《负责声明》</a>
+            </div>
+        </div>
+        <div class="bg_white save_box">
+            <button type="button" class="col_white btn_style btn-next">确认发布</button>
+        </div>
+    </section>
+<script type="text/javascript" src="../../../lib/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="../../../lib/layer/layer.js"></script>
+<script type="text/javascript">
+    var btn_next = $(".btn-next");
+    btn_next.click(function(){
+        layer.msg("发布");
+    });
+</script>
+</body>
+</html>
